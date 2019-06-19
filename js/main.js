@@ -1,10 +1,12 @@
 if ('serviceWorker' in navigator) {
   // Supported!
-  navigator.serviceWorker
-  .register('/sworker.js')
-  .catch(function(err) {
-  console.error(err);
+  navigator.serviceWorker.register('/sworker.js').then(function(registration) {
+    console.log('Service worker registration succeeded:', registration);
+  }, function(error) {
+  console.log('Service worker registration failed:', error);
   });
+} else {
+  console.log('Service worker are not supported.');
 }
 
 let restaurants,
