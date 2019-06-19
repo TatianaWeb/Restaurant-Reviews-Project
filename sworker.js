@@ -1,12 +1,14 @@
+const CACHE_NAME = 'my-site-cache-v1';
+
 const cacheFiles = [
     '/',
     '/index.html',
     '/restaurant.html',
-    '/css/style.css',
+    '/css/styles.css',
     '/js/dbhelper.js',
     '/js/main.js',
     '/js/restaurant_info.js',
-    '/data/restarants.json',
+    '/data/restaurants.json',
     '/img/1.jpg',
     '/img/2.jpg',
     '/img/3.jpg',
@@ -21,33 +23,43 @@ const cacheFiles = [
 
 self.addEventListener('install', function(e) {
     e.waitUntil(
-      caches.open('v1').then(function(cache) {
+      caches.open(CACHE_NAME).then(function(cache) {
+        console.log('Opened cache');
         return cache.addAll(cacheFiles);
       })
     );
 });
 
 self.addEventListener('fetch', function(e) {
-    e.respondWith(
-        caches.match(e.request).then(function(response) {
-            if(response) {
-                console.log('Found ', e.request, ' in cashe');
+    event.respondWith(
+      caches.match(e.request)
+        .then(function(response) {
+          // resource is in the cache
+          if (response) {
+            return response;
+          }
+  
+          // clone the request for future using
+          var fetchRequest = e.request.clone();
+  
+          return fetch(fetchRequest).then(
+            function(response) {
+              // check the response
+              if(!response || response.status !== 200 || response.type !== 'basic') {
                 return response;
-            }
-            else {
-                console.log('Could not find ', e.request, ' in cache');
-                return fetch(e.request)
-                .then(function(response) {
-                    const clonedResponse = response.clone();
-                    caches.open('v1').then(function(cache) {
-                        cache.put(e.request, clonedResponse);
-                    })
-                    return response;
-                })
-                .catch(function(err) {
-                    console.error(err);
+              }
+  
+              // clone the response
+              var responseToCache = response.clone();
+  
+              caches.open(CACHE_NAME)
+                .then(function(cache) {
+                  cache.put(e.request, responseToCache);
                 });
+  
+              return response;
             }
+          );
         })
-    );
-});
+      );
+  });
