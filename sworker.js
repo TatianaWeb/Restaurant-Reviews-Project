@@ -28,7 +28,7 @@ self.addEventListener('install', function(e) {
 });
 
 self.addEventListener('fetch', function(e) {
-    e.respodWith(
+    e.respondWith(
         caches.match(e.request).then(function(response) {
             if(response) {
                 console.log('Found ', e.request, ' in cashe');
@@ -40,12 +40,12 @@ self.addEventListener('fetch', function(e) {
                 .then(function(response) {
                     const clonedResponse = response.clone();
                     caches.open('v1').then(function(cache) {
-                        cache.put(e.request, clonedResponde);
+                        cache.put(e.request, clonedResponse);
                     })
                     return response;
                 })
                 .catch(function(err) {
-                    console.err(err);
+                    console.error(err);
                 });
             }
         })
