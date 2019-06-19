@@ -1,3 +1,11 @@
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+  .register('/sworker.js')
+  .catch(function(err) {
+    console.error(err);
+  });
+}
+
 let restaurants,
   neighborhoods,
   cuisines
@@ -209,4 +217,13 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 } */
+
+
+self.addEventListener('install', function(e) {
+  e.waitUntil(
+    caches.open('v1').then(function(cache) {
+      return cache.addAll(cacheFiles);
+    })
+  );
+});
 
