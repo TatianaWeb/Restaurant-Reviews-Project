@@ -219,11 +219,3 @@ addMarkersToMap = (restaurants = self.restaurants) => {
 } */
 
 
-self.addEventListener('install', function(e) {
-  e.waitUntil(
-    caches.open('v1').then(function(cache) {
-      return cache.addAll(cacheFiles);
-    })
-  );
-});
-
