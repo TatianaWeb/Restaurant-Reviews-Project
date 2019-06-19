@@ -1,8 +1,9 @@
 if ('serviceWorker' in navigator) {
+  // Supported!
   navigator.serviceWorker
   .register('/sworker.js')
   .catch(function(err) {
-    console.error(err);
+  console.error(err);
   });
 }
 
