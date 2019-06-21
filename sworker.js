@@ -31,7 +31,7 @@ self.addEventListener('install', function(e) {
 });
 
 self.addEventListener('fetch', function(e) {
-    event.respondWith(
+    e.respondWith(
       caches.match(e.request)
         .then(function(response) {
           // resource is in the cache
