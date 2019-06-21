@@ -274,7 +274,7 @@ nav h1 a {
     padding: 0;
     align-items: center;
     width: 100%;
-    max-width: 25rem;
+    max-width: 24rem;
   }
 
   #restaurants-list .restaurant-img {
@@ -282,13 +282,13 @@ nav h1 a {
     display: block;
     margin: 2.5rem 0 0 0;
     width: 100%;
-    max-width: 25rem;
+    max-width: 24rem;
   }
 
   #reviews-list {
     margin: 0;
     padding: 1rem;
-    max-width: 25rem;
+    max-width: 24rem;
   }
 }
 
