@@ -1,6 +1,6 @@
-# Mobile Web Specialist Certification Course
----
-#### _Three Stage Course Material Project - Restaurant Reviews_
+# Mobile Web Specialist Certification Course | Project 5 | Fron-End Web Development
+
+This is my repository for Udacity's  project#5 using Udacity starter code (forked from udacity/mws-restaurant-stage-1).
 
 ## Project Overview: Stage 1
 
@@ -31,3 +31,27 @@ This repository uses [leafletjs](https://leafletjs.com/) with [Mapbox](https://w
 ### Note about ES6
 
 Most of the code in this project has been written to the ES6 JavaScript specification for compatibility with modern web browsers and future-proofing JavaScript code. As much as possible, try to maintain use of ES6 in any additional JavaScript you write.
+
+## Steps to complete the project
+Fork and clone the starter repository. The code in this repository will serve as your baseline to begin development.
+From inside the new directory, launch a local client server using Python from your terminal: 
+- Python 2: python -m SimpleHTTPServer 8000 
+- Python 3: python3 -m http.server 8000
+- Visit the site in your browser at http://localhost:8000
+
+## Instructions to refresh code from VSC to GitHub
+- git clone origin
+- git add .
+- git commit -m "Any message"
+- git push origin master
+
+### Dependencies
+
+Helpful links for this project:
+
+- [Udacity Restaurant Reviews App Project (project #5)](https://www.diigo.com/outliner/fjslyn/Udacity-Restaurant-Reviews-App-(project-%235)?key=zqiopam1yz)
+
+### Contributing
+
+This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+
