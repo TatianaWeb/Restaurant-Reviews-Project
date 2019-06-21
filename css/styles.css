@@ -30,7 +30,8 @@ a img{
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: Arial, Helvetica, sans-serif;
-  margin: 0 0 2rem;
+  margin: 0;
+  padding: 2rem;
 }
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -44,7 +45,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   color: #aaa;
   font-size: 0,8rem;
   letter-spacing: 0.1rem;
-  padding: 2.5rem 3.2rem 2.5rem;
+  padding: 2.5rem;
   text-align: center;
   text-transform: uppercase;
 }
@@ -151,12 +152,7 @@ nav h1 a {
   max-width: 48rem;
   width: 80%;
 }
-#restaurants-list .restaurant-img {
-  background-color: #ccc;
-  display: block;
-  margin: 2.5rem 0 0 0;
-  max-width: 360px;
-}
+
 #restaurants-list li h1 {
   color: #f18200;
   font-family: Arial,sans-serif;
@@ -250,10 +246,50 @@ nav h1 a {
   line-height: 1.1;
 }
 
-#restaurant-img {
-  padding: 0;
-  align-items: center;
+@media screen and (min-width:320px) and (max-width:660px) {
+  #restaurant-img {
+    padding: 0;
+    align-items: center;
+    max-width: 15rem;
+  }
+
+  #restaurants-list .restaurant-img {
+    background-color: #ccc;
+    display: block;
+    margin: 2.5rem 0 0 0;
+    max-width: 15rem;
+  }
+
+  #reviews-list {
+    margin: 0;
+    padding: 1rem;
+    max-width: 19rem;
+  }
+}  
+
+@media screen and (min-width:661px) and (max-width:2000px) {
+
+  #restaurant-img {
+    padding: 0;
+    align-items: center;
+    max-width: 51rem;
+  }
+
+  #restaurants-list .restaurant-img {
+    background-color: #ccc;
+    display: block;
+    margin: 2.5rem 0 0 0;
+    max-width: 51rem;
+  }
+
+  #reviews-list {
+    margin: 0;
+    padding: 1rem;
+    max-width: 30rem;
+  }
+
 }
+
 
 #restaurant-cuisine {
   background-color: #333;
@@ -267,10 +303,7 @@ nav h1 a {
   text-transform: uppercase;
 }
 
-#reviews-list {
-  margin: 0;
-  padding: 0;
-}
+
 
 #reviews-list li {
   background-color: #fff;
@@ -304,8 +337,9 @@ nav h1 a {
 
 #restaurant-hours td {
   color: #666;
+  background-color: #fff;
   display: block;
   position: relative;
-  width: 100%;
-  margin: 0;
+  width: 85%;
+  margin: 0 0 0 2rem;
 }
