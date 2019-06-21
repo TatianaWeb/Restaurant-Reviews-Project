@@ -314,7 +314,7 @@ nav h1 a {
   overflow: hidden;
   padding: 2rem;
   position: relative;
-  max-width: 48rem;
+  max-width: 35rem;
   width: calc(100% - 1rem);
 }
 
